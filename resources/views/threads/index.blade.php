@@ -9,10 +9,12 @@
 
                     <div class="card-body">
                         @foreach($threads as $thread)
-                            <h2>{{ $thread->title }}</h2>
-                            <p>{{ $thread->body }}</p>
+                            <div class="card-header">{{ $thread->created_at->diffForHumans() }}</div>
+                            <a href="{{ $thread->path() }}">
+                                {{ $thread->title }}
+                            </a>
+                            <div class="body">{{ $thread->body }}</div>
                         @endforeach
-                        You are logged in!
                     </div>
                 </div>
             </div>
